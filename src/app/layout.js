@@ -1,5 +1,8 @@
+// src/app/layout.js (or src/pages/_app.js)
 import localFont from "next/font/local";
+import Loading from "@/components/Loading"; // Import the Loading component
 import "./globals.css";
+import { FloatingNavDemo } from "@/components/navigationBar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,6 +26,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <FloatingNavDemo />
         {children}
       </body>
     </html>
