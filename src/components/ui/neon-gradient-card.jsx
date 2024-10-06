@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 const NeonGradientCard = ({
   className,
   children,
-  borderSize = 2,
-  borderRadius = 20,
+  borderSize = 0,
+  borderRadius = 2,
   neonColors = {
     firstColor: "#ff00aa",
     secondColor: "#00FFF1",
@@ -41,28 +41,30 @@ const NeonGradientCard = ({
   }, [children]);
 
   return (
-    (<div
+    <div
       ref={containerRef}
-      style={
-        {
-          "--border-size": `${borderSize}px`,
-          "--border-radius": `${borderRadius}px`,
-          "--neon-first-color": neonColors.firstColor,
-          "--neon-second-color": neonColors.secondColor,
-          "--card-width": `${dimensions.width}px`,
-          "--card-height": `${dimensions.height}px`,
-          "--card-content-radius": `${borderRadius - borderSize}px`,
-          "--pseudo-element-background-image": `linear-gradient(0deg, ${neonColors.firstColor}, ${neonColors.secondColor})`,
-          "--pseudo-element-width": `${dimensions.width + borderSize * 2}px`,
-          "--pseudo-element-height": `${dimensions.height + borderSize * 2}px`,
-          "--after-blur": `${dimensions.width / 3}px`
-        }
-      }
-      className={cn("relative z-10 size-full rounded-[var(--border-radius)]", className)}
-      {...props}>
+      style={{
+        "--border-size": `${borderSize}px`,
+        "--border-radius": `${borderRadius}px`,
+        "--neon-first-color": neonColors.firstColor,
+        "--neon-second-color": neonColors.secondColor,
+        "--card-width": `${dimensions.width}px`,
+        "--card-height": `${dimensions.height}px`,
+        "--card-content-radius": `${borderRadius - borderSize}px`,
+        "--pseudo-element-background-image": `linear-gradient(0deg, ${neonColors.firstColor}, ${neonColors.secondColor})`,
+        "--pseudo-element-width": `${dimensions.width + borderSize * 2}px`,
+        "--pseudo-element-height": `${dimensions.height + borderSize * 2}px`,
+        "--after-blur": `${dimensions.width / 3}px`,
+      }}
+      className={cn(
+        "relative z-10 size-full rounded-[var(--border-radius)]",
+        className
+      )}
+      {...props}
+    >
       <div
         className={cn(
-          "relative size-full min-h-[inherit] rounded-[var(--card-content-radius)] bg-gray-100 p-6",
+          "relative size-full min-h-[inherit] rounded-[var(--card-content-radius)]  ",
           "before:absolute before:-left-[var(--border-size)] before:-top-[var(--border-size)] before:-z-10 before:block",
           "before:h-[var(--pseudo-element-height)] before:w-[var(--pseudo-element-width)] before:rounded-[var(--border-radius)] before:content-['']",
           "before:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] before:bg-[length:100%_200%]",
@@ -72,10 +74,11 @@ const NeonGradientCard = ({
           "after:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] after:bg-[length:100%_200%] after:opacity-80",
           "after:animate-background-position-spin",
           "dark:bg-neutral-900"
-        )}>
+        )}
+      >
         {children}
       </div>
-    </div>)
+    </div>
   );
 };
 

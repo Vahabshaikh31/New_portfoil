@@ -15,8 +15,20 @@ html {
 }
 
 :root {
+  --slate-900: 30, 30%, 10%;
+  /* Example HSL values */
+  --black: 0, 0%, 0%;
+  --neutral-900: 210, 10%, 20%;
+  --cyan-500: 180, 100%, 50%;
+  --emerald-500: 140, 100%, 50%;
+  --pink-500: 320, 100%, 50%;
+  --indigo-500: 240, 100%, 50%;
+  --orange-500: 30, 100%, 50%;
+  --yellow-500: 60, 100%, 50%;
   --foreground: #171717;
+
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -36,4 +48,43 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Specific Section Styles */
+.scrollable-section {
+  height: 500px;
+  /* Set a specific height for the section */
+  overflow-y: auto;
+  /* Allow vertical scrolling */
+  scrollbar-width: thin;
+  /* For Firefox */
+  scrollbar-color: #888 #f0f0f0;
+  /* Thumb color and track color for Firefox */
+}
+
+/* For WebKit browsers (Chrome, Safari, Edge) */
+.scrollable-section::-webkit-scrollbar {
+  width: 10px;
+  /* Width of the scrollbar */
+}
+
+.scrollable-section::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  /* Light background color for the scrollbar track */
+  border-radius: 10px;
+  /* Rounded corners for the track */
+}
+
+.scrollable-section::-webkit-scrollbar-thumb {
+  background: #888;
+  /* Darker color for the scrollbar handle */
+  border-radius: 10px;
+  /* Rounded corners for the handle */
+  border: 2px solid #f0f0f0;
+  /* Gives a space between the handle and track */
+}
+
+.scrollable-section::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  /* Darker shade for hover effect */
 }

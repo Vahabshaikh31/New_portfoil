@@ -42,6 +42,7 @@ const SkillSection = () => {
 
     gsap.to(text.current, {
       scale: 1,
+      // y: "-15%",
       delay: 1,
       opacity: 1,
       scrollTrigger: {
@@ -54,10 +55,10 @@ const SkillSection = () => {
   }, []);
 
   return (
-    <div className="min-h-[80vh] lg:min-h-[100vh] flex flex-col lg:flex-row lg:justify-between lg:items-center sm:justify-center sm:items-center px-4 md:px-8">
+    <div className="min-h-[80vh ] lg:min-h-[100vh] flex flex-col lg:flex-row lg:justify-between lg:items-center sm:justify-center sm:items-center px-4 md:px-8">
       <div
         ref={text}
-        className="w-full mt-14 opacity-0 flex justify-center items-center mb-8 lg:mb-0"
+        className="w-full  opacity-0 flex justify-center items-center mb-8 lg:mb-0"
       >
         <BoxRevealDemo />
       </div>
