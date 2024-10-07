@@ -10,7 +10,7 @@ export function AuroraBackgroundDemo() {
     <AuroraBackground>
       <div className="flex w-[60%] justify-between items-center ">
         <div className="text-white ">
-          <SparklesText text="Contact Me " />
+          <SparklesText text="Contact With Me " />
 
           <p className=" text-[3rem]">Just type Hii I will Catch you!</p>
         </div>
