@@ -3,8 +3,11 @@ import React from "react";
 import { Label } from "../ui/label";
 import { Input, Textarea } from "../ui/input"; // Import the Textarea
 import { cn } from "@/lib/utils";
-
-import { FloatingDockDemo } from "../form-links";
+import {
+  IconBrandGithub,
+  IconBrandGoogle,
+  IconBrandOnlyfans,
+} from "@tabler/icons-react";
 
 export function SignupFormDemo() {
   const handleSubmit = (e) => {
@@ -37,9 +40,7 @@ export function SignupFormDemo() {
           Send Msg &rarr;
           <BottomGradient />
         </button>
-        <div>
-          <FloatingDockDemo />
-        </div>
+
         <div className="bg-gradient-to-r from-transparent via-neutral-300 to-transparent my-8 h-[1px] w-full" />
       </form>
     </div>
