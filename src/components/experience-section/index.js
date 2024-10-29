@@ -88,9 +88,7 @@ export function StickyScrollRevealDemo() {
         Internships And project Experience
       </h1>
       <div ref={div} className="opacity-0 mt-[1rem] bg-black">
-        <NeonGradientCard className="max-w-full items-center justify-center text-center">
-          <StickyScroll content={content} />
-        </NeonGradientCard>
+        <StickyScroll content={content} />
       </div>
     </div>
   );

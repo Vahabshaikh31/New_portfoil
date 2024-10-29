@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global styles */
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +17,6 @@ html {
 
 :root {
   --slate-900: 30, 30%, 10%;
-  /* Example HSL values */
   --black: 0, 0%, 0%;
   --neutral-900: 210, 10%, 20%;
   --cyan-500: 180, 100%, 50%;
@@ -26,9 +26,8 @@ html {
   --orange-500: 30, 100%, 50%;
   --yellow-500: 60, 100%, 50%;
   --foreground: #171717;
-
+  --mainTextColor: #E84A4A;
 }
-
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -39,11 +38,14 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Iceland', sans-serif;
+  /* Set Iceland as the default font */
   margin: 0;
   box-sizing: border-box;
 }
 
+
+/* Custom utility classes */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -87,4 +89,179 @@ body {
 .scrollable-section::-webkit-scrollbar-thumb:hover {
   background: #555;
   /* Darker shade for hover effect */
+}
+
+/* Custom Font Classes */
+.iceland-regular {
+  font-family: "Iceland", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.noto-sans-elbasan-regular {
+  font-family: "Noto Sans Elbasan", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MajorMonoDisplay';
+  src: url('/fonts/MajorMonoDisplay-Regular.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* From Uiverse.io by mrhyddenn */
+.scrolldown {
+  --color: #E84A4A;
+  --sizeX: 30px;
+  --sizeY: 50px;
+  position: relative;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  margin-left: var(sizeX / 2);
+  border: calc(var(--sizeX) / 10) solid var(--color);
+  border-radius: 50px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.scrolldown::before {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: var(--color);
+  border-radius: 100%;
+  animation: scrolldown-anim 2s infinite;
+  box-sizing: border-box;
+  box-shadow: 0px -5px 3px 1px #2a547066;
+}
+
+@keyframes scrolldown-anim {
+  0% {
+    opacity: 0;
+    height: 6px;
+  }
+
+  40% {
+    opacity: 1;
+    height: 10px;
+  }
+
+  80% {
+    transform: translate(0, 20px);
+    height: 10px;
+    opacity: 0;
+  }
+
+  100% {
+    height: 3px;
+    opacity: 0;
+  }
+}
+
+.chevrons {
+  padding: 6px 0 0 0;
+  margin-left: -3px;
+  margin-top: 48px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chevrondown {
+  margin-top: -6px;
+  position: relative;
+  border: solid var(--color);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+}
+
+.chevrondown:nth-child(odd) {
+  animation: pulse54012 500ms ease infinite alternate;
+}
+
+.chevrondown:nth-child(even) {
+  animation: pulse54012 500ms ease infinite alternate 250ms;
+}
+
+@keyframes pulse54012 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.5;
+  }
+}
+
+/* From Uiverse.io by nikk7007 */
+.btn {
+  --color: #E84A4A;
+  --color2: rgb(10, 25, 30);
+  padding: 0.8em 1.20em;
+  background-color: transparent;
+  border-radius: 6px;
+  border: .3px solid #E84A4A;
+  transition: .5s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  font-weight: 300;
+  font-size: 12px;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  text-transform: uppercase;
+  color: var(--color);
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  cursor: pointer;
+}
+
+.btn::after, .btn::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: skew(90deg) translate(-50%, -50%);
+  position: absolute;
+  inset: 50%;
+  left: 25%;
+  z-index: -1;
+  transition: .5s ease-out;
+  background-color: var(--color);
+}
+
+.btn::before {
+  top: -50%;
+  left: -25%;
+  transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+}
+
+.btn:hover::before {
+  transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+}
+
+.btn:hover::after {
+  transform: skew(45deg) translate(-50%, -50%);
+}
+
+.btn:hover {
+  color: var(--color2);
+}
+
+.btn:active {
+  filter: brightness(.7);
+  transform: scale(.98);
 }

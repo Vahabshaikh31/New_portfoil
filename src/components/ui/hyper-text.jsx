@@ -68,7 +68,7 @@ export default function HyperText({
           <motion.h1
             key={i}
             className={cn(
-              "font-mono text-9xl font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-gray-300 to-black drop-shadow-lg", // Updated styles
+              "font-mono text-9xl font-semibold leading-none g text-[#E84A4A] font-iceland", // Updated styles
               letter === " " ? "w-3" : "",
               className
             )}
@@ -81,3 +81,4 @@ export default function HyperText({
     </div>
   );
 }
+// text-transparent bg-clip-text bg-gradient-to-b from-gray-300 to-black drop-shadow-l
