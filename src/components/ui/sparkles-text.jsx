@@ -57,7 +57,10 @@ const SparklesText = ({
         "--sparkles-second-color": `${colors.second}`,
       }}
     >
-      <span className="relative text-white inline-block">
+      <span
+        className="relative text-[#E84A4A] inline-block "
+        style={{ fontFamily: "MajorMonoDisplay" }}
+      >
         {sparkles.map((sparkle) => (
           <Sparkle key={sparkle.id} {...sparkle} />
         ))}

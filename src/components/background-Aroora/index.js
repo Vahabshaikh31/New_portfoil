@@ -8,13 +8,21 @@ import SparklesText from "../ui/sparkles-text";
 export function AuroraBackgroundDemo() {
   return (
     <AuroraBackground>
-      <div className="flex w-[60%] justify-between items-center ">
-        <div className="text-white ">
-          <SparklesText text="Contact Me " />
+      <div
+        className="flex flex-col md:flex-row w-full max-w-[90%] md:w-[70%] justify-between items-center mx-auto px-4 md:px-0 space-y-8 md:space-y-0"
+        id="contact"
+      >
+        {/* Text Section */}
+        <div className="text-white text-center md:text-left">
+          <SparklesText text="Contact me " />
 
-          <p className=" text-[3rem]">Just type Hii I will Catch you!</p>
+          <p className="text-xl md:text-[3rem] leading-relaxed">
+            Just type Hii, I will catch you!
+          </p>
         </div>
-        <div className="z-10">
+
+        {/* Signup Form */}
+        <div className="z-10 w-full md:w-auto">
           <SignupFormDemo />
         </div>
       </div>

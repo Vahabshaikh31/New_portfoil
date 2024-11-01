@@ -12,59 +12,81 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function ParticlesDemo() {
   const { theme } = useTheme("light");
-  const [showComponent, setShowComponent] = useState(false);
   const [color, setColor] = useState("#ffffff");
+  const [showComponent, setShowComponent] = useState(false);
 
   const textRef1 = useRef(null);
   const textRef2 = useRef(null);
   const textRef3 = useRef(null);
+  const textRef4 = useRef(null);
+  const textRef5 = useRef(null);
 
-  // Change particle color based on theme
   useEffect(() => {
     setColor(theme === "dark" ? "#000000" : "#ffffff");
 
     const timer = setTimeout(() => {
       setShowComponent(true);
-    }, 5000);
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, [theme]);
 
   useEffect(() => {
-    if (textRef1.current) {
-      gsap.to(textRef1.current, {
-        x: "10%",
-        opacity: 1,
-        duration: 1.2,
-      });
+    if (showComponent) {
+      const timeline = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+      timeline.fromTo(
+        textRef5.current,
+        { opacity: 0, x: "20%", scale: 1.2 },
+        { opacity: 1, x: "0%", scale: 1, duration: 1.4, ease: "power4.inOut" }
+      );
+
+      timeline.fromTo(
+        textRef1.current,
+        { opacity: 0, x: "-100%", scale: 0.8 },
+        {
+          opacity: 1,
+          x: "0%",
+          scale: 1,
+          duration: 1.5,
+          delay: 0.2,
+        }
+      );
+
+      timeline
+        .fromTo(
+          textRef2.current,
+          { opacity: 0, y: "100%" },
+          { opacity: 1, y: "0%", rotate: 0, duration: 1.6, ease: "power4.out" }
+        )
+        .fromTo(
+          textRef3.current,
+          { opacity: 0, y: "50%", scale: 0.9 },
+          { opacity: 1, y: "0%", scale: 1, duration: 1.8, ease: "power3.out" },
+          "-=1.2"
+        );
+
+      timeline.fromTo(
+        textRef4.current,
+        { opacity: 0, x: "-20%", scale: 0.8 },
+        {
+          opacity: 1,
+          x: "0%",
+          scale: 1,
+          duration: 0.6,
+          ease: "elastic.out(1, 0.6)",
+        }
+      );
+
+      ScrollTrigger.refresh();
     }
-    if (textRef2.current) {
-      gsap.to(textRef2.current, {
-        y: "-20%",
-        opacity: 1,
-        duration: 0.9,
-      });
-    }
-    if (textRef3.current) {
-      gsap.to(textRef3.current, {
-        scale: 1,
-        opacity: 0,
-        delay: 5,
-        duration: 0.5,
-        y: "30%",
-        scrollTrigger: {
-          trigger: textRef3.current,
-          start: "top 45%",
-          end: "top 40%",
-          scrub: 3,
-        },
-      });
-    }
-  }, []);
+  }, [showComponent]);
 
   return (
-    <div className="relative flex h-[100vh] w-full bg-black text-white overflow-hidden">
-      {/* Particles and Background Elements */}
+    <div
+      className="relative flex h-[100vh] w-full bg-black text-white overflow-hidden"
+      id="home"
+    >
       <Particles
         className="absolute inset-0"
         quantity={100}
@@ -72,68 +94,71 @@ export function ParticlesDemo() {
         color={color}
         refresh
       />
+      {showComponent && (
+        <div className="flex w-full flex-col justify-center items-start px-5 md:px-10 sm:px-5 lg:px-20 z-10">
+          <div className="flex w-full justify-between">
+            <h1
+              className="text-[#E84A4A] text-3xl md:text-4xl font-semibold tracking-wider opacity-0"
+              ref={textRef1}
+            >
+              Developer <span className="text-white">{"</>"}</span>
+            </h1>
+          </div>
 
-      {/* Main Content */}
-      <div className="flex w-full flex-col justify-center items-start px-4 lg:px-20">
-        {/* Top Section: Developer Label */}
-        <div className="flex w-full justify-between ">
-          <h1
-            className="text-[#E84A4A] text-3xl md:text-4xl font-semibold tracking-wider opacity-0"
-            ref={textRef1}
+          <div className="mt-16 text-left z-10">
+            <h1
+              className="text-[#E84A4A] text-5xl md:text-7xl opacity-0"
+              style={{ fontFamily: "MajorMonoDisplay" }}
+              ref={textRef2}
+            >
+              Abdulvahab shaikh
+            </h1>
+          </div>
+
+          <div
+            className="mt-4 w-full md:w-[70%] lg:w-[60%] opacity-0"
+            ref={textRef3}
           >
-            Developer <span className="text-white">{"</>"}</span>
-          </h1>
-        </div>
+            <p className="text-xl md:text-2xl text-left text-gray-300">
+              As a passionate Full Stack Developer, I specialize in building web
+              applications using modern technologies like React, Next.js,
+              Node.js, and MongoDB, with a strong foundation in both Frontend
+              and Backend development.
+            </p>
+          </div>
 
-        {/* Name Section */}
-        <div className="mt-16 text-left">
-          <h1
-            className="text-[#E84A4A] text-5xl md:text-7xl opacity-0"
-            style={{ fontFamily: "MajorMonoDisplay" }}
-            ref={textRef2}
-          >
-            Abdulvahab shaikh
-          </h1>
-        </div>
-
-        {/* Subtitle Section */}
-        <div className="mt-8 w-full md:w-[70%] lg:w-[60%]">
-          <p className="text-xl md:text-2xl text-left text-gray-300">
-            As a passionate Full Stack Developer, I specialize in building web
-            applications using modern technologies like React, Next.js, Node.js,
-            and MongoDB. With a strong foundation in both Frontend and Backend
-            development.
-          </p>
-        </div>
-
-        {/* Download Button */}
-        <div className="mt-12 w-full md:w-[60%]">
-          <button className="bg-transparent cursor-pointer text-red-500 hover:text-white py-2 px-4 md:px-6 p-10 transition-all duration-300 btn z-20">
-            Download CV
-          </button>
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 cursor-pointer z-20">
-            <div className="scrolldown">
-              <div className="chevrons">
-                <div className="chevrondown" />
-                <div className="chevrondown" />
+          <div className="mt-12 w-full md:w-[60%] mr-24">
+            <button
+              className="bg-transparent cursor-pointer text-red-500 hover:text-white py-2 px-4 md:px-6 p-10 transition-all duration-300 btn z-20 opacity-0"
+              ref={textRef4}
+            >
+              Download CV
+            </button>
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 cursor-pointer z-20">
+              <div className="scrolldown">
+                <div className="chevrons">
+                  <div className="chevrondown" />
+                  <div className="chevrondown" />
+                </div>
               </div>
             </div>
+            <div className="w-[15rem] md:w-[30rem] h-[15rem] md:h-[30rem] rounded-full bg-red-500 absolute top-[-100px] md:top-[-350px] left-[-50px] md:left-[-150px] blur-[100px] md:blur-[200px]" />
           </div>
-          <div className="w-[15rem] md:w-[30rem] h-[15rem] md:h-[30rem] rounded-full bg-red-500 absolute bottom-[-100px] md:bottom-[-350px] left-[-50px] md:left-[-150px] blur-[100px] md:blur-[200px]"></div>
-        </div>
 
-        {/* 3D Fluid Background Image */}
-        <div className="absolute top-0 right-0 h-full z-10 w-full lg:w-[100%] md:w-[80%] opacity-80 hidden sm:block">
-          <Image
-            src="/assets/Focus.png" // Path if in public folder
-            alt="Fluid 3D Visual"
-            layout="fill"
-            objectFit="cover"
-            className="opacity-80"
-          />
-          <div className="w-[10rem] md:w-[20rem] h-[10rem] md:h-[20rem] rounded-full bg-red-500 absolute top-[-150px] md:top-[-300px] right-[-50px] md:right-[-100px] blur-[50px] md:blur-[100px]"></div>
+          <div
+            className="absolute top-0 right-0 h-full z-100 w-full lg:w-[80%] md:w-[80%] opacity-80 hidden sm:block"
+            ref={textRef5}
+          >
+            <Image
+              src="/assets/Focus.png"
+              alt="Fluid 3D Visual"
+              layout="fill"
+              objectFit="cover"
+              className="opacity-80"
+            />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

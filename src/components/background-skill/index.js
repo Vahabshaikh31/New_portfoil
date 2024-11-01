@@ -8,31 +8,34 @@ export async function BoxRevealDemo() {
   return (
     <div className="size-full max-w-2xl items-center justify-center overflow-hidden pt-8">
       <BoxReveal boxColor={"#5046e6"} duration={0.5}>
-        <SparklesText text=" My Skill Stack" />
+        <SparklesText className=" text-5xl" text=" my skill stAck" />
       </BoxReveal>
       <BoxReveal boxColor={"#5046e6"} duration={0.5}>
-        <h2 className="mt-[.5rem] text-white text-[2rem]">
-          Full Stack Development,{" "}
-          <span className=" text-white">Java Developer</span>
+        <h2
+          className="mt-[.5rem] text-white text-[1rem] "
+          style={{ fontFamily: "MajorMonoDisplay" }}
+        >
+          FuLL STACK & Java dEvELOper,{" "}
         </h2>
       </BoxReveal>
       <BoxReveal boxColor={"#5046e6"} duration={0.5}>
         <div className="mt-6 text-[1.3rem]">
           <p className="text-white w-full">
-            <span className="font-semibold text-[#7ad3c2]"> Languages: </span>{" "}
+            <span className="font-semibold text-[#E84A4A]"> Languages: </span>{" "}
             Java (Java 8, Collection Framework), JavaScript (ES6+)
-            <span className="font-semibold text-[#7ad3c2]">
+            <br />
+            <span className="font-semibold text-[#E84A4A]">
               {" "}
-              Frontend:{" "}
+              Frontend:
             </span>{" "}
             HTML5, CSS3, SASS, Tailwind CSS, Bootstrap, React.js, Redux Toolkit,
             Framer Motion
             <br />{" "}
-            <span className="font-semibold text-[#7ad3c2]"> Backend </span> :
+            <span className="font-semibold text-[#E84A4A]"> Backend </span> :
             Node.js, MongoDB, RESTful APIs, Next.js <br />
-            <span className="font-semibold text-[#7ad3c2]"> Platforms </span> :
+            <span className="font-semibold text-[#E84A4A]"> Platforms </span> :
             AWS (S3, VPC, EC2), GitHub, Git Operating <br />
-            <span className="font-semibold text-[#7ad3c2]"> Systems </span> :
+            <span className="font-semibold text-[#E84A4A]"> Systems </span> :
             Linux (Ubuntu, Kali) , windows
             <br />
           </p>

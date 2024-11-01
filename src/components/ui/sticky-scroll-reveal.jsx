@@ -15,7 +15,7 @@ export const StickyScroll = ({ content, contentClassName }) => {
 
   const backgroundColors = [
     "#0f172a", // slate-900
-    "#000000", // black
+    "#0f172a", // black
     "#18181b", // neutral-900
   ];
 
@@ -62,10 +62,6 @@ export const StickyScroll = ({ content, contentClassName }) => {
 
   return (
     <motion.div
-      animate={{
-        backgroundColor: backgroundColors[activeCard % backgroundColors.length],
-        transition: { duration: 0.3 }, // Smooth transition for background color
-      }}
       className="h-[30rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10"
       ref={ref}
     >

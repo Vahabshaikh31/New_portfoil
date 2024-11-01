@@ -5,20 +5,17 @@ import {
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
-  delay,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import Github from "../../../public/assets/github";
 import LinkedIn from "../../../public/assets/linkedin";
+import { Link } from "react-scroll"; // Importing react-scroll Link
 
 export const FloatingNav = ({ icon, navItems, className }) => {
   const { scrollYProgress } = useScroll();
-
   const [visible, setVisible] = useState(true);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
       let direction = current - scrollYProgress.getPrevious();
 
@@ -49,24 +46,42 @@ export const FloatingNav = ({ icon, navItems, className }) => {
           duration: 0.4,
         }}
         className={cn(
-          "flex max-w-fit  fixed top-10 inset-x-0 mx-auto border border-transparent border-white/[0.2] rounded-full bg-black shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] pr-2 pl-8 py-2  items-center justify-center space-x-4",
+          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border border-transparent border-white/[0.2] rounded-full bg-black shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] pr-2 pl-8 py-2  items-center justify-center space-x-4",
           className
         )}
       >
         {navItems.map((navItem, idx) => (
           <Link
             key={`link=${idx}`}
-            href={navItem.link}
+            to={navItem.link} // This matches the section ID
+            spy={true} // Active class for the link
+            smooth={true} // Smooth scroll
+            offset={-70} // Offset to adjust position
+            duration={500} // Duration of the scroll
             className={cn(
-              "relative items-center flex space-x-1 text-neutral-100 hover:text-neutral-300 "
+              "relative items-center flex space-x-1 text-neutral-100 hover:text-neutral-300 cursor-pointer"
             )}
           >
-            <span className="block sm:hidden">{navItem.icon}</span>
+            <span className="block sm:hidden cursor-pointer">
+              {navItem.icon}
+            </span>
             <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
         ))}
-        <Github />
-        <LinkedIn />
+        <a
+          href="https://github.com/Vahabshaikh31"
+          target="nam"
+          className=" cursor-pointer"
+        >
+          <Github />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/abdulvahab-shaikh-aa3464305/"
+          target="new"
+          className=" cursor-pointer"
+        >
+          <LinkedIn />
+        </a>
       </motion.div>
     </AnimatePresence>
   );

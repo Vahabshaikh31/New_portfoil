@@ -12,56 +12,68 @@ const SkillSection = () => {
   const text = useRef(null);
 
   useEffect(() => {
-    // Adjust x offset based on screen width
-    const screenWidth = window.innerWidth;
-    let xOffset;
+    const handleAnimations = () => {
+      const screenWidth = window.innerWidth;
+      let xOffset;
 
-    if (screenWidth < 640) {
-      // Small screens (e.g., phones)
-      xOffset = "0%";
-    } else if (screenWidth >= 640 && screenWidth < 1024) {
-      // Medium screens (e.g., tablets)
-      xOffset = "-10%";
-    } else {
-      // Large screens (e.g., desktops)
-      xOffset = "-20%";
-    }
+      if (screenWidth < 640) {
+        xOffset = "0%"; // Small screens (e.g., phones)
+      } else if (screenWidth >= 640 && screenWidth < 1024) {
+        xOffset = "-5%"; // Medium screens (e.g., tablets)
+      } else {
+        xOffset = "-20%"; // Large screens (e.g., desktops)
+      }
 
-    gsap.to(cloud.current, {
-      scale: 1,
-      x: xOffset,
-      delay: 1,
-      opacity: 1,
-      scrollTrigger: {
-        trigger: cloud.current,
-        start: "top 50%",
-        end: "top 10%",
-        scrub: 3,
-      },
-    });
+      gsap.to(cloud.current, {
+        scale: 1,
+        x: xOffset,
+        delay: 1,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: cloud.current,
+          start: "top 50%",
+          end: "top 10%",
+          scrub: 3,
+        },
+      });
 
-    gsap.to(text.current, {
-      scale: 1,
-      // y: "-15%",
-      delay: 1,
-      opacity: 1,
-      scrollTrigger: {
-        trigger: text.current,
-        start: "top 60%",
-        end: "top 10%",
-        scrub: 3,
-      },
-    });
+      gsap.to(text.current, {
+        scale: 1,
+        delay: 1,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: text.current,
+          start: "top 60%",
+          end: "top 10%",
+          scrub: 3,
+        },
+      });
+    };
+
+    // Trigger animations
+    handleAnimations();
+
+    // Optional: Add a resize listener to recalculate animations if the window is resized
+    window.addEventListener("resize", handleAnimations);
+
+    // Cleanup event listener
+    return () => {
+      window.removeEventListener("resize", handleAnimations);
+    };
   }, []);
 
   return (
-    <div className="min-h-[80vh ] lg:min-h-[100vh] flex flex-col lg:flex-row lg:justify-between lg:items-center sm:justify-center sm:items-center px-4 md:px-8">
+    <div
+      className="min-h-[90vh] lg:min-h-[100vh] flex flex-col lg:flex-row lg:justify-between lg:items-center sm:justify-center sm:items-center px-4 md:px-8 overflow-hidden mt-20"
+      id="skills"
+    >
       <div
         ref={text}
-        className="w-full  opacity-0 flex justify-center items-center mb-8 lg:mb-0"
+        className="w-full opacity-0 flex justify-center items-center mb-8 lg:mb-0"
       >
         <BoxRevealDemo />
       </div>
+
       <div
         ref={cloud}
         className="opacity-0 w-full flex justify-end items-center cloud"
