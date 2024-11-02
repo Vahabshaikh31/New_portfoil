@@ -2,6 +2,6 @@
 
 module.exports = {
   images: {
-    domains: ["assets.aceternity.com"], // Add the external domain here
+    domains: ["assets.aceternity.com", "res.cloudinary.com"], // Allow these external domains
   },
 };

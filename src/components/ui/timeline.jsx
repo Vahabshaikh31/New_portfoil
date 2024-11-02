@@ -12,13 +12,10 @@ export const Timeline = ({ data }) => {
     const screenWidth = window.innerWidth;
 
     if (screenWidth < 640) {
-      // Small screens (e.g., phones)
       end = "0%";
     } else if (screenWidth >= 640 && screenWidth < 1024) {
-      // Medium screens (e.g., tablets)
       end = "-10%";
     } else {
-      // Large screens (e.g., desktops)
       end = "-20%";
     }
 
