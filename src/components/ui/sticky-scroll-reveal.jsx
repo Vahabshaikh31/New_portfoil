@@ -79,7 +79,7 @@ export const StickyScroll = ({ content, contentClassName }) => {
                 transition={{ duration: 0.3 }} // Smooth transition for opacity
                 className="text-2xl font-bold text-slate-100"
               >
-                {item.title}
+                {item.title} <span className="text-sm">{item.Cname}</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0 }}

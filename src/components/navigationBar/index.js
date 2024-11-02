@@ -1,7 +1,13 @@
 "use client";
 import React from "react";
 import { FloatingNav } from "../ui/floating-navbar";
-import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
+import {
+  IconHome,
+  IconBriefcase,
+  IconCode,
+  IconMessage,
+  IconUser,
+} from "@tabler/icons-react"; // Changed to include relevant icons
 import Github from "../../../public/assets/github";
 import { useEffect, useState } from "react";
 
@@ -24,12 +30,14 @@ export function FloatingNavDemo() {
     {
       name: "Skills",
       link: "skills", // ID of the skills section
-      icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: <IconCode className="h-4 w-4 text-neutral-500 dark:text-white" />, // Updated icon to "Code" for Skills
     },
     {
       name: "Projects",
       link: "projects", // ID of the projects section
-      icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      icon: (
+        <IconBriefcase className="h-4 w-4 text-neutral-500 dark:text-white" />
+      ), // Updated icon to "Briefcase" for Projects
     },
     {
       name: "Experience",
