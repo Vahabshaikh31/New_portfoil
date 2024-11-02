@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import Particles from "@/components/ui/particles";

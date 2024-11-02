@@ -2,7 +2,6 @@
 import React from "react";
 import { StickyScroll } from "../ui/sticky-scroll-reveal";
 import Image from "next/image";
-import { NeonGradientCard } from "../ui/neon-gradient-card";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { WavyBackgroundDemo } from "../background";
