@@ -42,7 +42,12 @@ export async function BoxRevealDemo() {
         </div>
       </BoxReveal>
       <div className="mt-3">
-        <DownloadBtn />
+        <a
+          href="/public/assets/Abdhulvaha_shaikh.pdf"
+          download="Abdhulvaha_shaikh.pdf"
+        >
+          <DownloadBtn />
+        </a>
       </div>{" "}
     </div>
   );
