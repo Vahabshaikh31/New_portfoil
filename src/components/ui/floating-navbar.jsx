@@ -9,7 +9,7 @@ import {
 import { cn } from "@/lib/utils";
 import Github from "../../../public/assets/github";
 import LinkedIn from "../../../public/assets/linkedin";
-import { Link } from "react-scroll"; // Importing react-scroll Link
+import { Link } from "react-scroll";
 
 export const FloatingNav = ({ icon, navItems, className }) => {
   const { scrollYProgress } = useScroll();
@@ -54,10 +54,8 @@ export const FloatingNav = ({ icon, navItems, className }) => {
           <Link
             key={`link=${idx}`}
             to={navItem.link} // This matches the section ID
-            spy={true} // Active class for the link
-            smooth={true} // Smooth scroll
+            spy={true}
             offset={-70} // Offset to adjust position
-            duration={500} // Duration of the scroll
             className={cn(
               "relative items-center flex space-x-1 text-neutral-100 hover:text-neutral-300 cursor-pointer"
             )}

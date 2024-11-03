@@ -1,28 +1,93 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { AuroraBackground } from "../ui/aurora-background";
 import { SignupFormDemo } from "../example/signup-form-demo";
 import SparklesText from "../ui/sparkles-text";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger with GSAP
+gsap.registerPlugin(ScrollTrigger);
 
 export function AuroraBackgroundDemo() {
+  const textRef1 = useRef(null);
+  const textRef2 = useRef(null);
+  const textRef3 = useRef(null);
+
+  useEffect(() => {
+    // Animate text 1 with ScrollTrigger
+    gsap.fromTo(
+      textRef1.current,
+      { opacity: 0, y: "-20%" },
+      {
+        opacity: 1,
+        y: "0%",
+        duration: 1.2,
+        ease: "power2.inOut",
+        scrollTrigger: {
+          trigger: textRef1.current, // Element to trigger the animation
+          start: "top 80%", // When the top of the element is at 80% of the viewport
+          end: "bottom 50%", // When the bottom of the element reaches 50% of the viewport
+          scrub: true, // Smooth scrubbing effect
+        },
+      }
+    );
+    gsap.fromTo(
+      textRef3.current,
+      { opacity: 0, y: "-20%" },
+      {
+        opacity: 1,
+        y: "0%",
+        duration: 1.2,
+        ease: "power2.inOut",
+        scrollTrigger: {
+          trigger: textRef3.current, // Element to trigger the animation
+          start: "top 80%", // When the top of the element is at 80% of the viewport
+          end: "bottom 50%", // When the bottom of the element reaches 50% of the viewport
+          scrub: true, // Smooth scrubbing effect
+        },
+      }
+    );
+
+    // Animate text 2 with ScrollTrigger
+    gsap.fromTo(
+      textRef2.current,
+      { opacity: 0, x: "20%" },
+      {
+        opacity: 1,
+        x: "0%",
+        duration: 1,
+        ease: "power2.inOut",
+        scrollTrigger: {
+          trigger: textRef2.current,
+          start: "top 80%",
+          end: "bottom 50%",
+          scrub: true,
+        },
+      }
+    );
+  }, []);
+
   return (
     <AuroraBackground>
       <div
         className="flex flex-col md:flex-row w-full max-w-[90%] md:w-[70%] justify-between items-center mx-auto px-4 md:px-0 space-y-8 md:space-y-0"
         id="contact"
       >
-        {/* Text Section */}
         <div className="text-white text-center md:text-left">
-          <SparklesText text="Contact me " />
-
-          <p className="text-xl md:text-[3rem] leading-relaxed">
+          <div ref={textRef3}>
+            <SparklesText text="contact me " />
+          </div>
+          <p className="text-xl md:text-[3rem] leading-relaxed" ref={textRef1}>
             Just type Hii, I will catch you!
           </p>
+          <h1 className=" font-iceland text-[#E84A4A]">
+            Abdulvahab.Dev@gmail.com
+          </h1>
         </div>
 
-        {/* Signup Form */}
-        <div className="z-10 w-full md:w-auto">
+        <div className="z-10 w-full md:w-auto" ref={textRef2}>
           <SignupFormDemo />
         </div>
       </div>

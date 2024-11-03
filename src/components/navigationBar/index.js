@@ -17,7 +17,7 @@ export function FloatingNavDemo() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowComponent(true);
-    }, 8000);
+    }, 6000);
     return () => clearTimeout(timer);
   }, []);
 
