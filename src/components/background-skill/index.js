@@ -6,7 +6,7 @@ import DownloadBtn from "@/static/Download";
 
 export async function BoxRevealDemo() {
   return (
-    <div className="size-full max-w-2xl items-center justify-center overflow-hidden pt-8">
+    <div className="size-full max-w-2xl items-center justify-center overflow-hidden pt-8 font-iceland">
       <BoxReveal boxColor={"#5046e6"} duration={0.5}>
         <SparklesText className=" text-5xl" text=" my skill stAck" />
       </BoxReveal>

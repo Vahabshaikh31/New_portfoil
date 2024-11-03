@@ -112,7 +112,7 @@ export function ParticlesDemo() {
         <div className="flex w-full flex-col justify-center items-start px-5 md:px-10 sm:px-5 lg:px-20 z-10">
           <div className="flex w-full justify-between">
             <h1
-              className="text-[#E84A4A] text-3xl md:text-4xl font-semibold tracking-wider opacity-0"
+              className="text-[#E84A4A] text-3xl md:text-4xl font-semibold tracking-wider opacity-0 font-iceland"
               ref={textRef1}
             >
               Developer <span className="text-white">{"</>"}</span>
@@ -121,7 +121,7 @@ export function ParticlesDemo() {
 
           <div className="mt-16 text-left z-10">
             <h1
-              className="text-[#E84A4A] text-5xl md:text-6xl  lg:text-7xl sm:text-3xl opacity-0"
+              className="text-[#E84A4A] text-4xl md:text-6xl  lg:text-7xl sm:text-3xl opacity-0"
               style={{ fontFamily: "MajorMonoDisplay" }}
               ref={textRef2}
             >
@@ -133,7 +133,7 @@ export function ParticlesDemo() {
             className="mt-4 w-full md:w-[70%] lg:w-[60%] opacity-0"
             ref={textRef3}
           >
-            <p className="text-xl md:text-2xl text-left text-gray-300">
+            <p className="text-xl md:text-2xl text-left text-gray-300 font-iceland">
               As a passionate Full Stack Developer, I specialize in building web
               applications using modern technologies like React, Next.js,
               Node.js, and MongoDB, with a strong foundation in both Frontend

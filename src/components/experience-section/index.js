@@ -36,11 +36,14 @@ export function StickyScrollRevealDemo() {
   }, []);
   return (
     <div
-      className="p-10 bg-black w-full h-full  relative overflow-hidden"
+      className="p-10 bg-black w-full h-full  relative overflow-hidden font-iceland"
       id="experience"
     >
       <WavyBackground className="max-w-4xl mx-auto pb-4 0">
-        <h1 className=" font-bold text-white  text-3xl opacity-0" ref={text}>
+        <h1
+          className=" font-bold text-white  text-3xl opacity-0 font-iceland"
+          ref={text}
+        >
           Internships And project Experience
         </h1>
         <div ref={div} className="opacity-0 mt-[1rem]">

@@ -62,10 +62,13 @@ export function AuroraBackgroundDemo() {
           <div>
             <SparklesText
               text="contact me"
-              className="text-4xl sm:text-4xl md:text-6xl lg:text-7xl"
+              className="text-4xl sm:text-4xl md:text-6xl lg:text-7xl font-iceland"
             />
           </div>
-          <p className="text-xl md:text-[3rem] leading-relaxed" ref={textRef1}>
+          <p
+            className="text-xl md:text-[3rem] leading-relaxed font-iceland"
+            ref={textRef1}
+          >
             Just type Hii, I will catch you!
           </p>
           <h1 className=" font-iceland text-[#E84A4A]">
@@ -73,7 +76,7 @@ export function AuroraBackgroundDemo() {
           </h1>
         </div>
 
-        <div className="z-10 w-full md:w-auto">
+        <div className="z-10 w-full md:w-auto font-iceland">
           <SignupFormDemo />
         </div>
       </div>
