@@ -121,7 +121,7 @@ export function ParticlesDemo() {
 
           <div className="mt-16 text-left z-10">
             <h1
-              className="text-[#E84A4A] text-5xl md:text-7xl  lg:text-7xl sm:text-4xl opacity-0"
+              className="text-[#E84A4A] text-5xl md:text-6xl  lg:text-7xl sm:text-3xl opacity-0"
               style={{ fontFamily: "MajorMonoDisplay" }}
               ref={textRef2}
             >
