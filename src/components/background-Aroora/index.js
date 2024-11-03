@@ -13,7 +13,6 @@ gsap.registerPlugin(ScrollTrigger);
 export function AuroraBackgroundDemo() {
   const textRef1 = useRef(null);
   const textRef2 = useRef(null);
-  const textRef3 = useRef(null);
 
   useEffect(() => {
     // Animate text 1 with ScrollTrigger
@@ -27,22 +26,6 @@ export function AuroraBackgroundDemo() {
         ease: "power2.inOut",
         scrollTrigger: {
           trigger: textRef1.current, // Element to trigger the animation
-          start: "top 80%", // When the top of the element is at 80% of the viewport
-          end: "bottom 50%", // When the bottom of the element reaches 50% of the viewport
-          scrub: true, // Smooth scrubbing effect
-        },
-      }
-    );
-    gsap.fromTo(
-      textRef3.current,
-      { opacity: 0, y: "-20%" },
-      {
-        opacity: 1,
-        y: "0%",
-        duration: 1.2,
-        ease: "power2.inOut",
-        scrollTrigger: {
-          trigger: textRef3.current, // Element to trigger the animation
           start: "top 80%", // When the top of the element is at 80% of the viewport
           end: "bottom 50%", // When the bottom of the element reaches 50% of the viewport
           scrub: true, // Smooth scrubbing effect
@@ -75,9 +58,12 @@ export function AuroraBackgroundDemo() {
         className="flex flex-col md:flex-row w-full max-w-[90%] md:w-[70%] justify-between items-center mx-auto px-4 md:px-0 space-y-8 md:space-y-0"
         id="contact"
       >
-        <div className="text-white text-center md:text-left">
-          <div ref={textRef3}>
-            <SparklesText text="contact me " />
+        <div className="text-white text-center md:text-left ">
+          <div>
+            <SparklesText
+              text="contact me"
+              className="text-4xl sm:text-4xl md:text-6xl lg:text-7xl"
+            />
           </div>
           <p className="text-xl md:text-[3rem] leading-relaxed" ref={textRef1}>
             Just type Hii, I will catch you!
@@ -87,7 +73,7 @@ export function AuroraBackgroundDemo() {
           </h1>
         </div>
 
-        <div className="z-10 w-full md:w-auto" ref={textRef2}>
+        <div className="z-10 w-full md:w-auto">
           <SignupFormDemo />
         </div>
       </div>
