@@ -62,7 +62,7 @@ export default function IconCloud({ iconSlugs }) {
     if (!data) return null;
 
     return Object.values(data.simpleIcons).map((icon) =>
-      renderCustomIcon(icon, theme || "light")
+      renderCustomIcon(icon, theme || "dark")
     );
   }, [data, theme]);
 
